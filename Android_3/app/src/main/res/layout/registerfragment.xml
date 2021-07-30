@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.example.android_3.ui.register.RegisterListener" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.Activity.MainActivity"
+        tools:showIn="@layout/registerfragment"
+
+        android:background="@drawable/gradient_list"
+        android:id="@+id/layoutlogin"
+        >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:text="Register"
+            android:textColor="#2196F3"
+            android:textSize="30dp"
+            android:shadowColor = "#000"
+            android:shadowDx = "-2"
+            android:shadowDy = "-2"
+            android:shadowRadius = "1"
+            />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtID_"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="@string/ID"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:startIconDrawable="@drawable/ic_baseline_account_circle_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_edittext" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtpassword_"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_edittext" />
+        </com.google.android.material.textfield.TextInputLayout>
+        a
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnregister"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:onClick="@{v->listener.startRegisterClick(v)}"
+                android:text="register" />
+
+            <Button
+                android:id="@+id/btncancle"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:alpha="@integer/config_navAnimTime"
+                android:textStyle="bold"
+                android:shadowColor="#F44336"
+
+                android:onClick="@{v->listener.cancleRegisterClick(v)}"
+                android:text="cancle" />
+        </LinearLayout>
+</LinearLayout>
+        <ProgressBar
+            android:indeterminateTint="@color/black"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/progress_register"
+            android:layout_centerInParent="true"
+
+            />
+    </RelativeLayout>
+</layout>

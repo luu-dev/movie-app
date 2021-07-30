@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.android_3.ui.login.LoginFragment"
+        android:label="LoginFragment"
+
+        >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left" />
+        <argument
+            android:name="id"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="password"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_loginFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.android_3.ui.register.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.example.android_3.ui.movie.MovieFragment"
+        android:label="MovieFragment" >
+        <action
+            android:id="@+id/action_movieFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+        <action
+            android:id="@+id/action_movieFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_movieFragment_to_movieListFragment"
+            app:destination="@id/movieListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.example.android_3.ui.detailmovie.DetailMovieFragment"
+        android:label="DetailMovieFragment" >
+        <argument
+            android:name="movie_id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.android_3.ui.searchmovie.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_movieListFragment"
+            app:destination="@id/movieListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.example.android_3.ui.listmovie.MovieListFragment"
+        android:label="MovieListFragment" >
+        <argument
+            android:name="type"
+            app:argType="com.example.android_3.ui.listmovie.PageType" />
+        <action
+            android:id="@+id/action_movieListFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
+        <argument
+            android:name="query"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+</navigation>

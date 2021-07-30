@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="listener"
+            type="com.example.android_3.ui.login.LoginListener" />
+    </data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Activity.MainActivity"
+    tools:showIn="@layout/loginfragment"
+    android:background="@drawable/gradient_list"
+    android:id="@+id/layoutlogin"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Login"
+        android:layout_gravity="center"
+        android:textColor="#2196F3"
+        android:textSize="30dp"
+
+        android:shadowColor = "#000"
+        android:shadowDx = "-2"
+        android:shadowDy = "-2"
+        android:shadowRadius = "1"
+        />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:startIconDrawable="@drawable/ic_baseline_account_circle_24"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        android:id="@+id/edtID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+
+        android:hint="@string/ID">
+        <com.google.android.material.textfield.TextInputEditText
+            android:background="@drawable/custom_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
+        app:endIconMode="password_toggle"
+        android:id="@+id/edtpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+
+
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:background="@drawable/custom_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkbox"
+            android:layout_marginLeft="20dp"
+            android:checked="false"
+            app:useMaterialThemeColors="false"
+            android:text="remmember"
+
+            />
+
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btnlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="login"
+        android:alpha="@integer/config_navAnimTime"
+        android:textStyle="bold"
+        android:shadowColor="#F44336"
+
+        android:layout_gravity="center"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:onClick="@{v->listener.onLoginClicked()}"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Forget Password?"
+        android:padding="5dp"
+        android:id="@+id/forget_password"
+        android:textColor="@drawable/changecolor"
+        android:onClick="@{v->listener.onResetPassword()}"
+        />
+    <TextView
+        android:onClick="@{v->listener.onRegisterClicked(v)}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Don't have account?Sign up here."
+        android:padding="5dp"
+        android:id="@+id/signup_reg"
+        android:textColor="@drawable/changecolor"
+        />
+
+    </LinearLayout>
+    <ProgressBar
+        android:indeterminateTint="@color/black"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/progress"
+        android:layout_centerInParent="true"
+        />
+</RelativeLayout>
+</layout>
